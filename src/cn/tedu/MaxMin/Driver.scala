@@ -11,7 +11,7 @@ object Driver {
                   .setAppName("MaxMin")
     
     val sc=new SparkContext(conf)
-    val data=sc.textFile("d://data/MaxMin.txt",2)
+    val data=sc.textFile("e://data/MaxMin.txt",2)
     
     //--line->Array[String]->Filter过滤出男性数据->身高数据
     val parseData=data.map { line => line.split(" ") }
@@ -24,4 +24,20 @@ object Driver {
                   
                   
   }
+}
+object Driver1 {
+def main(args: Array[String]): Unit = {
+
+  val conf=new SparkConf().setMaster("local")
+  .setAppName("MaxMin")
+
+  val sc=new SparkContext(conf)
+  val data=sc.textFile("e://data/MaxMin.txt",2)
+
+  //--line->Array[String]->Filter过滤出男性数据->身高数据
+  val parseData=data.map{line=>line.split(" ")}.map{arr=>(arr(0).toInt,arr(1),arr(2).toInt)}
+//  val t1=sqc.createDataFrame
+
+
+}
 }
