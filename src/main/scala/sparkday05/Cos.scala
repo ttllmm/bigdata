@@ -56,7 +56,7 @@ cosArray(a1,a2)
     val a2mu=math.sqrt(a2.map{x=>x*x}.sum)
 
     val cos=z/(a1mu*a2mu)
-    println(cos)
+    cos
 
   }
 }
